@@ -1,14 +1,21 @@
-import { Column, Entity, PrimaryGeneratedColumn } from "typeorm";
+import { Column, Entity, PrimaryGeneratedColumn, BeforeInsert, BeforeUpdate } from "typeorm";
 
+import bcryptjs from 'bcryptjs'
 
 @Entity('usuarios')
 class Usuario {
   @PrimaryGeneratedColumn('increment')
-  id: string;
+  id: string
   @Column()
-  email: string;
+  email: string
   @Column()
-  password: string;
+  senha: string
+
+  @BeforeInsert()
+    @BeforeUpdate()
+      hashSenha() {
+        this.senha = bcryptjs.hashSync(this.senha, 8)
+      }
 }
 
 export default Usuario;

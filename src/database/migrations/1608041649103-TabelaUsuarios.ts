@@ -9,6 +9,7 @@ export class TabelaUsuarios1608041649103 implements MigrationInterface {
                 {
                     name: 'id',
                     type: 'int',
+                    isGenerated: true,
                     isPrimary: true,
                     generationStrategy: 'increment',
                 },
@@ -18,7 +19,7 @@ export class TabelaUsuarios1608041649103 implements MigrationInterface {
                     isUnique: true,
                 },
                 {
-                    name: 'password',
+                    name: 'senha',
                     type: 'varchar',
                 }
             ]
@@ -26,7 +27,7 @@ export class TabelaUsuarios1608041649103 implements MigrationInterface {
     }
 
     public async down(queryRunner: QueryRunner): Promise<void> {
-        await queryRunner.dropTable('users')
+        await queryRunner.dropTable('usuarios')
     }
 
 }

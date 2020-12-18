@@ -9,10 +9,12 @@
     "moduleResolution": "node",
     "allowJs": true,
     "sourceMap": true,
-    "outDir": "dist"
+    "outDir": "dist",
+    "strictPropertyInitialization": false,
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
   },
   "lib": ["es2015"],
   "emitDecoratorMetadata": true,
   "experimentalDecorators": true,
-  // "strictPropertyInitialization": false,
 }
